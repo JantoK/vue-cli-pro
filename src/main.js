@@ -3,6 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+// 引入封装后的axios
+import "./plugins/axios";
+
 // 样式重制
 import "@/assets/stylus/reset.styl";
 
