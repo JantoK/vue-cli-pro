@@ -1,6 +1,8 @@
 const path = require("path");
 // 代码分析工具
 const WebpackBundleAnalyzer = require("webpack-bundle-analyzer");
+// Gzip
+const CompressionPlugin = require("compression-webpack-plugin");
 // 路径处理
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -30,6 +32,15 @@ module.exports = {
       config
         .plugin("webpack-bundle-analyzer")
         .use(WebpackBundleAnalyzer.BundleAnalyzerPlugin);
+    }
+    // Gzip https://www.webpackjs.com/plugins/compression-webpack-plugin/
+    if (process.env.GZIP === "true") {
+      config.plugin("CompressionPlugin").use(CompressionPlugin, [
+        {
+          // 是否删除原资源
+          deleteOriginalAssets: true
+        }
+      ]);
     }
   }
 };
