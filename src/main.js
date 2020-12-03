@@ -6,6 +6,14 @@ import store from "./store";
 // 样式重制
 import "@/assets/stylus/reset.styl";
 
+// 注册SvgIcon组件
+import svgIcon from "./components/SvgIcon";
+Vue.component("svg-icon", svgIcon);
+// 加载全局SvgIcons
+const req = require.context("@/assets/icons", false, /\.svg$/);
+const requireAll = requireContent => requireContent.keys().map(requireContent);
+requireAll(req);
+
 // 页面加载进度条
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
