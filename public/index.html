@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel='stylesheet' href='_PLoading.css'/>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <div class="_PLoading">
+        <h2 class="_PLoading-context">
+          正在加载中...
+        </h2>
+      </div>
+    </div>
     <!-- built files will be auto injected -->
   </body>
 </html>

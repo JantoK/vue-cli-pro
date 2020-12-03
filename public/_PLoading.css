@@ -1,0 +1,10 @@
+/* 首次加载页面时加载中的loading样式 */
+._PLoading {
+    width: 100%;
+    height: 100%;
+    vertical-align: center;
+    text-align: center;
+}
+._PLoading-context {
+    margin-top: 30%;
+}
