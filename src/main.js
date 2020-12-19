@@ -12,6 +12,11 @@ import "@/assets/stylus/reset.styl";
 // 注册SvgIcon组件
 import svgIcon from "./components/SvgIcon";
 Vue.component("svg-icon", svgIcon);
+
+// 注册自定义指令
+import Directives from "@/directives/index";
+Vue.use(Directives);
+
 // 加载全局SvgIcons
 const req = require.context("@/assets/icons", false, /\.svg$/);
 const requireAll = requireContent => requireContent.keys().map(requireContent);
