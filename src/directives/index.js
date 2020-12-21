@@ -1,8 +1,10 @@
 // 批量注册directives
 import copy from "@/directives/copy";
+import longPress from "./longPress";
 
 const directives = {
-  copy
+  copy,
+  longPress
 };
 
 export default {
