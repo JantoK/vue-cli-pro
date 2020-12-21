@@ -4,8 +4,7 @@ const copy = {
     el.handler = () => {
       if (!el.$value) {
         // 值为空的时候，给出提示。可根据项目UI仔细设计
-        alert("复制内容为空");
-        return;
+        return alert("复制内容为空");
       }
       // 动态创建 textarea 标签
       const textarea = document.createElement("textarea");
@@ -21,7 +20,7 @@ const copy = {
       textarea.select();
       const result = document.execCommand("Copy");
       if (result) {
-        alert("复制成功"); // 可根据项目UI仔细设计
+        return alert("复制成功"); // 可根据项目UI仔细设计
       }
       document.body.removeChild(textarea);
     };
