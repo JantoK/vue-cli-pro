@@ -1,3 +1,4 @@
+// 点击复制 v-copy="text"
 const copy = {
   bind(el, { value }) {
     el.$value = value;

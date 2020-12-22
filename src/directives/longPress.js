@@ -1,3 +1,4 @@
+// 长按 v-longPress="func()"
 const longPress = {
   bind: function(el, binding) {
     if (!binding.value) {

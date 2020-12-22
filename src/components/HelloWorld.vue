@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
-    <button v-copy="msg">点击复制</button>
+    <div style="display: flex;flex-direction: column">
+      <button style="margin: 30px" v-copy="msg">点击复制</button>
+      <button style="margin: 30px" v-longPress>长按测试</button>
+      <button style="margin: 30px" v-throttle>节流测试</button>
+    </div>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
@@ -69,7 +73,7 @@
       </li>
     </ul>
     <h3>Ecosystem</h3>
-    <ul>
+    <ul style="margin-bottom: 800px">
       <li>
         <a href="https://router.vuejs.org" target="_blank" rel="noopener"
           >vue-router</a
@@ -100,6 +104,7 @@
         >
       </li>
     </ul>
+    <img style="max-width: 100%;" v-lazyLoad="images" alt="懒加载测试图" />
   </div>
 </template>
 
@@ -108,7 +113,13 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
-  }
+  },
+  data() {
+    return {
+      images: require("../assets/images/lazyBig.jpg")
+    };
+  },
+  methods: {}
 };
 </script>
 
