@@ -1,4 +1,5 @@
 // 节流 v-throttle="func()"
+import throttleFunc from "../plugins/throttleFunc";
 const throttle = {
   inserted: function(el, binding) {
     if (!binding.value) {
@@ -10,14 +11,9 @@ const throttle = {
     if (typeof binding.value !== "function") {
       throw "callback must be a function";
     }
-    let timer;
+    const handler = throttleFunc(binding.value, 1000);
     el.addEventListener("click", () => {
-      if (timer) {
-        clearTimeout(timer);
-      }
-      timer = setTimeout(() => {
-        binding.value();
-      }, 500);
+      handler(el);
     });
   }
 };

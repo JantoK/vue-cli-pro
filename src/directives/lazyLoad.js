@@ -1,4 +1,5 @@
 // 图片懒加载 v-lazyLoad="imgUrl"
+import throttleFunc from "../plugins/throttleFunc";
 const lazyLoad = {
   // install方法
   install(Vue) {
@@ -37,7 +38,7 @@ const lazyLoad = {
   },
   // 监听scroll事件
   listenerScroll(el) {
-    const handler = lazyLoad.throttle(lazyLoad.load, 300);
+    const handler = throttleFunc(lazyLoad.load, 500);
     lazyLoad.load(el);
     window.addEventListener("scroll", () => {
       handler(el);
@@ -55,30 +56,6 @@ const lazyLoad = {
         el.removeAttribute("data-src");
       }
     }
-  },
-
-  // scroll事件节流
-  throttle(fn, delay) {
-    let timer;
-    let prevTime;
-    return function(...args) {
-      const currTime = Date.now();
-      const context = this;
-      if (!prevTime) prevTime = currTime;
-      clearTimeout(timer);
-
-      if (currTime - prevTime > delay) {
-        prevTime = currTime;
-        fn.apply(context, args);
-        return clearTimeout(timer);
-      }
-
-      timer = setTimeout(function() {
-        prevTime = Date.new();
-        timer = null;
-        fn.apply(context, args);
-      }, delay);
-    };
   }
 };
 
