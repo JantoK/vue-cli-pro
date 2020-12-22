@@ -22,6 +22,10 @@ const req = require.context("@/assets/icons", false, /\.svg$/);
 const requireAll = requireContent => requireContent.keys().map(requireContent);
 requireAll(req);
 
+// 图片懒加载
+import lazyLoad from "./directives/lazyLoad";
+Vue.use(lazyLoad);
+
 Vue.config.productionTip = false;
 
 new Vue({
